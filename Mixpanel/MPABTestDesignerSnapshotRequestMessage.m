@@ -9,6 +9,8 @@
 #import "MPObjectIdentityProvider.h"
 #import "MPObjectSerializerConfig.h"
 
+#import "AEMixpanelConfig.h"
+
 NSString * const MPABTestDesignerSnapshotRequestMessageType = @"snapshot_request";
 
 static NSString * const kSnapshotSerializerConfigKey = @"snapshot_class_descriptions";
@@ -46,6 +48,10 @@ static NSString * const kObjectIdentityProviderKey = @"object_identity_provider"
             // If neither place has a config, this is probably a stale message and we can't create a snapshot.
             return;
         }
+
+	#if MIXPANEL_DEBUG_MENU
+		return;
+	#endif
 
         // Get the object identity provider from the connection's session store or create one if there is none already.
         MPObjectIdentityProvider *objectIdentityProvider = [connection sessionObjectForKey:kObjectIdentityProviderKey];

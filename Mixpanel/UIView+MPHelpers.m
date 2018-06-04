@@ -4,6 +4,8 @@
 #import "UIView+MPHelpers.h"
 #import "MPLogger.h"
 
+#import "AEMixpanelConfig.h"
+
 // NB If you add any more fingerprint methods, increment this.
 #define MP_FINGERPRINT_VERSION 1
 
@@ -15,6 +17,7 @@
 
 - (UIImage *)mp_snapshotImage {
     UIImage *image = nil;
+#if !MIXPANEL_DEBUG_MENU
     CGSize size = self.layer.bounds.size;
     UIGraphicsBeginImageContext(size);
 
@@ -26,15 +29,20 @@
     }
 
     UIGraphicsEndImageContext();
+#endif
     
     return image;
 }
 
 - (UIImage *)mp_snapshotForBlur {
+#if !MIXPANEL_DEBUG_MENU
     UIImage *image = [self mp_snapshotImage];
     // hack, helps with colors when blurring
     NSData *imageData = UIImageJPEGRepresentation(image, 1); // convert to jpeg
     return [UIImage imageWithData:imageData];
+#else
+    return nil;
+#endif
 }
 
 - (NSArray *)mp_targetActions {

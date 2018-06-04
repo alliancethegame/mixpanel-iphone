@@ -9,6 +9,8 @@
 #import "MPObjectSerializer.h"
 #import "MPObjectSerializerConfig.h"
 
+#import "AEMixpanelConfig.h"
+
 @implementation MPApplicationStateSerializer
 
 {
@@ -34,6 +36,7 @@
 {
     UIImage *image = nil;
 
+#if !MIXPANEL_DEBUG_MENU
     UIWindow *window = [self windowAtIndex:index];
     if (window && !CGRectEqualToRect(window.frame, CGRectZero)) {
         UIGraphicsBeginImageContextWithOptions(window.bounds.size, YES, window.screen.scale);
@@ -43,6 +46,7 @@
         image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
     }
+#endif
 
     return image;
 }
