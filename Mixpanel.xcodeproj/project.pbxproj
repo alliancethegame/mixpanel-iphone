@@ -275,7 +275,7 @@
 		51F308791C86881900614A13 /* MPSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSwizzle.h; sourceTree = "<group>"; };
 		51F3087A1C86881900614A13 /* MPSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSwizzle.m; sourceTree = "<group>"; };
 		51FF9AB71C2B77B4004B0028 /* ios.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = ios.modulemap; path = Mixpanel/ios.modulemap; sourceTree = "<group>"; };
-		602C23C820C5F75F00FF4E06 /* AEMixpanelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEMixpanelConfig.h; path = "../../Alliance-AirWar/System/AEMixpanelConfig.h"; sourceTree = "<group>"; };
+		602C23C820C5F75F00FF4E06 /* AEMixpanelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEMixpanelConfig.h; path = "../../Landscapes-AR/System/AEMixpanelConfig.h"; sourceTree = "<group>"; };
 		7C170C2A1A4A02F500D9E0F2 /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C170C2E1A4A02F500D9E0F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C170C471A4A035F00D9E0F2 /* _MPTweakBindObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MPTweakBindObserver.h; sourceTree = "<group>"; };
