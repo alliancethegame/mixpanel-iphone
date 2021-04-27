@@ -5,6 +5,9 @@
 #import <Cocoa/Cocoa.h>
 #endif
 #import "MixpanelPeople.h"
+#import "MixpanelType.h"
+
+#import <UserNotifications/UserNotifications.h>
 
 #if defined(MIXPANEL_WATCHOS)
 #define MIXPANEL_FLUSH_IMMEDIATELY 1
@@ -23,6 +26,7 @@
 #endif
 
 @class    MixpanelPeople;
+@class    MixpanelGroup;
 @protocol MixpanelDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -75,7 +79,7 @@ extern NSString *const MPNotificationTypeTakeover;
 /*!
  The distinct ID of the current user.
 
- A distinct ID is a string that uniquely identifies one of your users. By default, 
+ A distinct ID is a string that uniquely identifies one of your users. By default,
  we'll use the device's advertisingIdentifier UUIDString, if that is not available
  we'll use the device's identifierForVendor UUIDString, and finally if that
  is not available we will generate a new random UUIDString. To change the
@@ -84,14 +88,38 @@ extern NSString *const MPNotificationTypeTakeover;
 @property (atomic, readonly, copy) NSString *distinctId;
 
 /*!
+ The default anonymous Id / distinct Id  given to the events before identify.
+
+ A default distinct ID is a string that uniquely identifies the anonymous activity.
+ By default, we'll use the device's advertisingIdentifier UUIDString, if that is not
+ available we'll use the device's identifierForVendor UUIDString, and finally if that
+ is not available we will generate a new random UUIDString.
+ */
+@property (atomic, readonly, copy) NSString *anonymousId;
+
+/*!
+  The user ID with which <code>identify:</code> is called with.
+
+  This is null until <code>identify:</code> is called and is set to the id
+  with which identify is called with.
+ */
+@property (atomic, readonly, copy) NSString *userId;
+
+/*!
  The alias of the current user.
- 
- An alias is another string that uniquely identifies one of your users. Typically, 
+
+ An alias is another string that uniquely identifies one of your users. Typically,
  this is the user ID from your database. By using an alias you can link pre- and
  post-sign up activity as well as cross-platform activity under one distinct ID.
  To set the alias use the <code>createAlias:forDistinctID:</code> method.
  */
 @property (atomic, readonly, copy) NSString *alias;
+
+/*!
+ A flag which says if a distinctId is already in peristence from old sdk
+  Defaults to NO.
+ */
+@property (atomic) BOOL hadPersistedDistinctId;
 
 /*!
  The base URL used for Mixpanel API requests.
@@ -154,21 +182,21 @@ extern NSString *const MPNotificationTypeTakeover;
 @property (atomic) BOOL showNotificationOnActive;
 
 /*!
- Controls whether to automatically send the client IP Address as part of 
+ Controls whether to automatically send the client IP Address as part of
  event tracking. With an IP address, geo-location is possible down to neighborhoods
  within a city, although the Mixpanel Dashboard will just show you city level location
  specificity. For privacy reasons, you may be in a situation where you need to forego
  effectively having access to such granular location information via the IP Address.
- 
+
  Defaults to YES.
  */
 @property (atomic) BOOL useIPAddressForGeoLocation;
 
 /*!
- Controls whether to enable the visual test designer for A/B testing and codeless on mixpanel.com. 
+ Controls whether to enable the visual test designer for A/B testing and codeless on mixpanel.com.
  You will be unable to edit A/B tests and codeless events with this disabled, however *previously*
  created A/B tests and codeless events will still be delivered.
- 
+
  Defaults to YES.
  */
 @property (atomic) BOOL enableVisualABTestAndCodeless;
@@ -176,15 +204,15 @@ extern NSString *const MPNotificationTypeTakeover;
 /*!
  Controls whether to enable the run time debug logging at all levels. Note that the
  Mixpanel SDK uses Apple System Logging to forward log messages to `STDERR`, this also
- means that mixpanel logs are segmented by log level. Settings this to `YES` will enable 
+ means that mixpanel logs are segmented by log level. Settings this to `YES` will enable
  Mixpanel logging at the following levels:
- 
-   * Error - Something has failed 
+
+   * Error - Something has failed
    * Warning - Something is amiss and might fail if not corrected
    * Info - The lowest priority that is normally logged, purely informational in nature
    * Debug - Information useful only to developers, and normally not logged.
- 
- 
+
+
  Defaults to NO.
  */
 @property (atomic) BOOL enableLogging;
@@ -248,13 +276,13 @@ extern NSString *const MPNotificationTypeTakeover;
 /*!
  Initializes a singleton instance of the API, uses it to set whether or not to opt out tracking for
  GDPR compliance, and then returns it.
- 
+
  This is the preferred method for creating a sharedInstance with a mixpanel
  like above. With the optOutTrackingByDefault parameter, Mixpanel tracking can be opted out by default.
- 
+
  @param apiToken        your project token
  @param optOutTrackingByDefault  whether or not to be opted out from tracking by default
- 
+
  */
 + (Mixpanel *)sharedInstanceWithToken:(NSString *)apiToken optOutTrackingByDefault:(BOOL)optOutTrackingByDefault;
 
@@ -275,25 +303,25 @@ extern NSString *const MPNotificationTypeTakeover;
 /*!
  Initializes a singleton instance of the API, uses it to track launchOptions information,
  and then returns it.
- 
+
  This is the preferred method for creating a sharedInstance with a mixpanel
  like above. With the trackCrashes and automaticPushTracking parameter, Mixpanel can track crashes and automatic push.
- 
+
  @param apiToken        your project token
  @param launchOptions   your application delegate's launchOptions
  @param trackCrashes    whether or not to track crashes in Mixpanel. may want to disable if you're seeing
  issues with your crash reporting for either signals or exceptions
  @param automaticPushTracking    whether or not to automatically track pushes sent from Mixpanel
  */
-+ (Mixpanel *)sharedInstanceWithToken:(NSString *)apiToken launchOptions:(NSDictionary *)launchOptions trackCrashes:(BOOL)trackCrashes automaticPushTracking:(BOOL)automaticPushTracking;
++ (Mixpanel *)sharedInstanceWithToken:(NSString *)apiToken launchOptions:(nullable NSDictionary *)launchOptions trackCrashes:(BOOL)trackCrashes automaticPushTracking:(BOOL)automaticPushTracking;
 
 /*!
  Initializes a singleton instance of the API, uses it to track launchOptions information,
  and then returns it.
- 
+
  This is the preferred method for creating a sharedInstance with a mixpanel
  like above. With the optOutTrackingByDefault parameter, Mixpanel tracking can be opted out by default.
- 
+
  @param apiToken        your project token
  @param launchOptions   your application delegate's launchOptions
  @param trackCrashes    whether or not to track crashes in Mixpanel. may want to disable if you're seeing
@@ -308,8 +336,8 @@ extern NSString *const MPNotificationTypeTakeover;
 
  The API must be initialized with <code>sharedInstanceWithToken:</code> or
  <code>initWithToken:launchOptions:andFlushInterval</code> before calling this class method.
- This method will return <code>nil</code> if there are no instances created. If there is more than 
- one instace, it will return the first one that was created by using <code>sharedInstanceWithToken:</code> 
+ This method will return <code>nil</code> if there are no instances created. If there is more than
+ one instace, it will return the first one that was created by using <code>sharedInstanceWithToken:</code>
  or <code>initWithToken:launchOptions:andFlushInterval:</code>.
  */
 + (nullable Mixpanel *)sharedInstance;
@@ -379,27 +407,17 @@ extern NSString *const MPNotificationTypeTakeover;
 /*!
  Sets the distinct ID of the current user.
 
- As of version 2.3.1, Mixpanel will choose a default distinct ID based on
- whether you are using the AdSupport.framework or not.
+ Mixpanel uses a randomly generated persistent UUID as the default local distinct ID.
 
- If you are not using the AdSupport Framework (iAds), then we use the
- <code>[UIDevice currentDevice].identifierForVendor</code> (IFV) string as the
- default distinct ID.  This ID will identify a user across all apps by the same
- vendor, but cannot be used to link the same user across apps from different
- vendors.
+ If you want to  use a unique persistent UUID, you can define the
+ <code>MIXPANEL_UNIQUE_DISTINCT_ID</code>  preprocessor flag in your build settings.
+ It then uses the IFV String (`UIDevice.current().identifierForVendor`) as the default local distinct ID.
+ This ID will identify a user across all apps by the same vendor, but cannot be used to link the same
+ user across apps from different vendors. If we are unable to get an IFV, we will fall back to generating
+ a random persistent UUID.
 
- If you are showing iAds in your application, you are allowed use the iOS ID
- for Advertising (IFA) to identify users. If you have this framework in your
- app, Mixpanel will use the IFA as the default distinct ID. If you have
- AdSupport installed but still don't want to use the IFA, you can define the
- <code>MIXPANEL_NO_IFA</code> preprocessor flag in your build settings, and
- Mixpanel will use the IFV as the default distinct ID.
-
- If we are unable to get an IFA or IFV, we will fall back to generating a
- random persistent UUID.
-
- For tracking events, you do not need to call <code>identify:</code> if you
- want to use the default.  However, <b>Mixpanel People always requires an
+ For tracking events, you do not need to call <code>identify:</code>.
+ However, <b>Mixpanel User profiles always require an
  explicit call to <code>identify:</code></b>. If calls are made to
  <code>set:</code>, <code>increment</code> or other <code>MixpanelPeople</code>
  methods prior to calling <code>identify:</code>, then they are queued up and
@@ -416,16 +434,78 @@ extern NSString *const MPNotificationTypeTakeover;
 /*!
  Sets the distinct ID of the current user. With the option of only updating the
  distinct ID value and not the Mixpanel People distinct ID.
- 
+
  This method is not intended to be used unless you wish to prevent updating the Mixpanel
  People distinct ID value by passing a value of NO to the usePeople param. This can be
- useful if the user wishes to prevent People updates from being sent until the identify 
+ useful if the user wishes to prevent People updates from being sent until the identify
  method is called.
- 
+
  @param distinctId string that uniquely identifies the current user
  @param usePeople bool controls whether or not to set the people distinctId to the event distinctId
  */
 - (void)identify:(NSString *)distinctId usePeople:(BOOL)usePeople;
+
+/*!
+ Add a group to this user's membership for a particular group key.
+ The groupKey must be an NSString. The groupID should be a legal MixpanelType value.
+ 
+ @param groupKey        the group key
+ @param groupID         the group ID
+ */
+- (void)addGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
+
+/*!
+ Remove a group from this user's membership for a particular group key.
+ The groupKey must be an NSString. The groupID should be a legal MixpanelType value.
+ 
+ @param groupKey        the group key
+ @param groupID         the group ID
+ */
+- (void)removeGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
+
+/*!
+ Set the group to which the user belongs.
+ The groupKey must be an NSString. The groupID should be an array
+ of MixpanelTypes.
+ 
+ @param groupKey        the group key
+ @param groupIDs        the group IDs
+ */
+- (void)setGroup:(NSString *)groupKey groupIDs:(NSArray<id<MixpanelType>> *)groupIDs;
+
+/*!
+ Convenience method to set a single group ID for the current user.
+ 
+ @param groupKey        the group key
+ @param groupID         the group ID
+ */
+- (void)setGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
+
+/*!
+ Tracks an event with specific groups.
+ 
+ Similar to track(), the data will also be sent to the specific group
+ datasets. Group key/value pairs are upserted into the property map
+ before tracking.
+ The keys in groups must be NSString objects. values can be any legal
+ MixpanelType objects. If the event is being timed, the timer will
+ stop and be added as a property.
+ 
+ @param event               event name
+ @param properties          properties dictionary
+ @param groups              groups dictionary, which contains key-value pairs
+ for this event
+ */
+- (void)trackWithGroups:(NSString *)event properties:(NSDictionary *)properties groups:(NSDictionary *)groups;
+
+/*!
+ Get a MixpanelGroup identifier from groupKey and groupID.
+ The groupKey must be an NSString. The groupID should be a legal MixpanelType value.
+ 
+ @param groupKey    the group key
+ @param groupID     the group ID
+ */
+- (MixpanelGroup *)getGroup:(NSString *)groupKey groupID:(id<MixpanelType>)groupID;
 
 /*!
  Tracks an event.
@@ -551,6 +631,13 @@ extern NSString *const MPNotificationTypeTakeover;
 - (double)eventElapsedTime:(NSString *)event;
 
 /*!
+ Clears the event timer for the named event.
+ 
+ @param event    the name of the event to clear the timer for
+ */
+- (void)clearTimedEvent:(NSString *)event;
+
+/*!
  Clears all current event timers.
  */
 - (void)clearTimedEvents;
@@ -572,7 +659,7 @@ extern NSString *const MPNotificationTypeTakeover;
 
 /*!
  Calls flush, then optionally archives and calls a handler when finished.
- 
+
  When calling <code>flush</code> manually, it is sometimes important to verify
  that the flush has finished before further action is taken. This is
  especially important when the app is in the background and could be suspended
@@ -598,27 +685,19 @@ extern NSString *const MPNotificationTypeTakeover;
 - (void)archive;
 
 /*!
- Creates a distinct_id alias from alias to original id.
-
- This method is used to map an identifier called an alias to the existing Mixpanel
- distinct id. This causes all events and people requests sent with the alias to be
- mapped back to the original distinct id. The recommended usage pattern is to call
- createAlias: and then identify: (with their new user ID) when they log in the next time.
- This will keep your signup funnels working correctly.
+ The alias method creates an alias which Mixpanel will use to remap one id to another. Multiple aliases can point to the same identifier.
 
  <pre>
- // This makes the current ID (an auto-generated GUID)
- // and 'Alias' interchangeable distinct ids.
- [mixpanel createAlias:@"Alias"
-    forDistinctID:mixpanel.distinctId];
-
- // You must call identify if you haven't already
- // (e.g., when your app launches).
- [mixpanel identify:mixpanel.distinctId];
+ [mixpanel createAlias:@"New ID"
+         forDistinctID:mixpanel.distinctId];
+ 
+ // You can add multiple id aliases to the existing id
+ [mixpanel createAlias:@"Newer ID"
+         forDistinctID:mixpanel.distinctId];
 </pre>
 
-@param alias 		the new distinct_id that should represent original
-@param distinctID 	the old distinct_id that alias will be mapped to
+@param alias 		A unique identifier that you want to use as an identifier for this user.
+@param distinctID 	The current user identifier.
  */
 - (void)createAlias:(NSString *)alias forDistinctID:(NSString *)distinctID;
 
@@ -643,7 +722,7 @@ extern NSString *const MPNotificationTypeTakeover;
 
 /*!
  Opt out tracking.
- 
+
  This method is used to opt out tracking. This causes all events and people request no longer
  to be sent back to the Mixpanel server.
  */
@@ -651,10 +730,10 @@ extern NSString *const MPNotificationTypeTakeover;
 
 /*!
  Opt in tracking.
- 
+
  Use this method to opt in an already opted out user from tracking. People updates and track calls will be
  sent to Mixpanel after using this method.
- 
+
  This method will internally track an opt in event to your project. If you want to identify the opt-in
  event and/or pass properties to the event, See also <code>optInTrackingForDistinctId:</code> and
  <code>optInTrackingForDistinctId:withEventProperties:</code>.
@@ -663,13 +742,13 @@ extern NSString *const MPNotificationTypeTakeover;
 
 /*!
  Opt in tracking.
- 
+
  Use this method to opt in an already opted out user from tracking. People updates and track calls will be
  sent to Mixpanel after using this method.
- 
+
  This method will internally track an opt in event to your project. If you want to pass properties to the event, see also
  <code>optInTrackingForDistinctId:withEventProperties:</code>.
- 
+
  @param distinctID     optional string to use as the distinct ID for events. This will call <code>identify:</code>.
  If you use people profiles make sure you manually call <code>identify:</code> after this method.
  */
@@ -677,13 +756,13 @@ extern NSString *const MPNotificationTypeTakeover;
 
 /*!
  Opt in tracking.
- 
+
  Use this method to opt in an already opted out user from tracking. People updates and track calls will be
  sent to Mixpanel after using this method.
- 
+
  This method will internally track an opt in event to your project.See also <code>optInTracking</code> or
  <code>optInTrackingForDistinctId:</code>.
- 
+
  @param distinctID     optional string to use as the distinct ID for events. This will call <code>identify:</code>.
  If you use people profiles make sure you manually call <code>identify:</code> after this method.
  @param properties     optional properties dictionary that could be passed to add properties to the opt-in event that is sent to
@@ -701,6 +780,29 @@ extern NSString *const MPNotificationTypeTakeover;
  */
 + (NSString *)libVersion;
 
+#if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
+#pragma mark - Mixpanel Push Notifications
+
+/*!
+ Detects if a UNNotification is from Mixpanel
+ */
++ (BOOL)isMixpanelPushNotification:(UNNotificationContent *)notification API_AVAILABLE(ios(10.0), macos(10.14), watchos(6.0)) API_UNAVAILABLE(tvos);
+
+/*!
+ Tracks and executes the appropriate action when a Mixpanel push notification is tapped
+ */
++ (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler API_AVAILABLE(ios(10.0), macos(10.14), watchos(6.0)) API_UNAVAILABLE(tvos);
+
+/*!
+ Internal utility for push notification-related event tracking using the project token from the push payload
+ */
++ (void)trackPushNotificationEventFromRequest:(UNNotificationRequest *)request event:(NSString *)event properties:(NSDictionary *)additionalProperties;
+
+/*!
+ Internal utility for push notification-related event tracking
+ */
+- (void)trackPushNotification:(NSDictionary *)userInfo event:(NSString *)event properties:(NSDictionary *)additionalProperties;
+#endif
 
 #if !MIXPANEL_NO_NOTIFICATION_AB_TEST_SUPPORT
 #pragma mark - Mixpanel Notifications

@@ -65,7 +65,7 @@ static const NSUInteger kBatchSize = 50;
 
 - (NSMutableArray *)orderAutomaticEvents:(NSMutableArray *)events
 {
-    if (!self.mixpanel.automaticEventsEnabled || !self.mixpanel.automaticEventsEnabled.boolValue) {
+    if (self.mixpanel.automaticEventsEnabled == nil || !self.mixpanel.automaticEventsEnabled.boolValue) {
         NSMutableArray *discardedItems = [NSMutableArray array];
         for (NSDictionary *e in events) {
             if ([e[@"event"] hasPrefix:@"$ae_"]) {
@@ -73,7 +73,7 @@ static const NSUInteger kBatchSize = 50;
             }
         }
         [events removeObjectsInArray:discardedItems];
-        if (!self.mixpanel.automaticEventsEnabled) {
+        if (self.mixpanel.automaticEventsEnabled == nil) {
             return discardedItems;
         }
     }
@@ -83,6 +83,11 @@ static const NSUInteger kBatchSize = 50;
 - (void)flushPeopleQueue:(NSMutableArray *)people
 {
     [self flushQueue:people endpoint:MPNetworkEndpointEngage];
+}
+
+- (void)flushGroupsQueue:(NSMutableArray *)groups
+{
+    [self flushQueue:groups endpoint:MPNetworkEndpointGroups];
 }
 
 - (void)flushQueue:(NSMutableArray *)queue endpoint:(MPNetworkEndpoint)endpoint
@@ -105,7 +110,7 @@ static const NSUInteger kBatchSize = 50;
         
         NSString *requestData = [MPNetwork encodeArrayForAPI:batch];
         NSString *postBody = [NSString stringWithFormat:@"ip=%d&data=%@", self.useIPAddressForGeoLocation, requestData];
-        MPLogDebug(@"%@ flushing %lu of %lu to %lu: %@", self, (unsigned long)batch.count, (unsigned long)queue.count, endpoint, queueCopyForFlushing);
+        MPLogDebug(@"%@ flushing %lu of %lu to %lu: %@", self, (unsigned long)batch.count, (unsigned long)queueCopyForFlushing.count, endpoint, queueCopyForFlushing);
         NSURLRequest *request = [self buildPostRequestForEndpoint:endpoint andBody:postBody];
         
         [self updateNetworkActivityIndicator:YES];
@@ -116,7 +121,6 @@ static const NSUInteger kBatchSize = 50;
                                                                   NSURLResponse *urlResponse,
                                                                   NSError *error) {
             [self updateNetworkActivityIndicator:NO];
-            
             BOOL success = [self handleNetworkResponse:(NSHTTPURLResponse *)urlResponse withError:error];
             if (error || !success) {
                 MPLogError(@"%@ network failure: %@", self, error);
@@ -211,7 +215,9 @@ static const NSUInteger kBatchSize = 50;
     dispatch_once(&onceToken, ^{
         endPointToPath = @{ @(MPNetworkEndpointTrack): @"/track/",
                             @(MPNetworkEndpointEngage): @"/engage/",
-                            @(MPNetworkEndpointDecide): @"/decide" };
+                            @(MPNetworkEndpointDecide): @"/decide",
+                            @(MPNetworkEndpointGroups): @"/groups/"
+                            };
     });
     NSNumber *key = @(endpoint);
     return endPointToPath[key];
@@ -290,8 +296,19 @@ static const NSUInteger kBatchSize = 50;
 }
 
 + (id)convertFoundationTypesToJSON:(id)obj {
+    // check if the NSString is a valid UTF-8 string
+    if ([obj isKindOfClass:NSString.class]) {
+        obj = (NSString *)obj;
+        if ([obj UTF8String] == nil) {
+            // not a valid UTF-8 string
+            // we will use the replacement char '\uFFFD' to prevent nil and crash
+            obj = @"\ufffd";
+            MPLogWarning(@"property value got invalid UTF-8 string");
+        }
+        return obj;
+    }
     // valid json types
-    if ([obj isKindOfClass:NSString.class] || [obj isKindOfClass:NSNumber.class] || [obj isKindOfClass:NSNull.class]) {
+    if ([obj isKindOfClass:NSNumber.class] || [obj isKindOfClass:NSNull.class]) {
         return obj;
     }
     

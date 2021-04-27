@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="Uq2-fg-yt9">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="Uq2-fg-yt9">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +13,7 @@
             <objects>
                 <navigationController title="Mixpanel" definesPresentationContext="YES" id="Uq2-fg-yt9" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NbU-pH-Zhz">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.44823393225669861" green="0.50915539264678955" blue="0.64185523986816406" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -27,101 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyE-1T-G41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149" y="202"/>
-        </scene>
-        <!--Track-->
-        <scene sceneID="mQi-ex-uaJ">
-            <objects>
-                <viewController title="Track" id="ibJ-TT-khi" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="elH-6G-T00"/>
-                        <viewControllerLayoutGuide type="bottom" id="GxK-vf-SW8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="a3f-yH-uFK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Tp-Ub-ebv">
-                                <rect key="frame" x="129" y="290" width="117" height="29"/>
-                                <segments>
-                                    <segment title="Male"/>
-                                    <segment title="Female"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-segmentedControl-7Tp-Ub-ebv"/>
-                                </userDefinedRuntimeAttributes>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fh9-Jr-Bv6">
-                                <rect key="frame" x="134" y="254" width="107" height="29"/>
-                                <segments>
-                                    <segment title="Axe"/>
-                                    <segment title="Sword"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-segmentedControl-fh9-Jr-Bv6"/>
-                                </userDefinedRuntimeAttributes>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9v-xn-yg9">
-                                <rect key="frame" x="104.5" y="196" width="166" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="dfA-R6-89w"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Set People Properties">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-button-B9v-xn-yg9"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="setPeopleProperties:" destination="ibJ-TT-khi" eventType="touchUpInside" id="6fp-I4-3j2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWT-bv-dFN">
-                                <rect key="frame" x="142.5" y="144" width="90" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="WpV-p2-sDb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Track Event">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-button-sWT-bv-dFN"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="trackEvent:" destination="ibJ-TT-khi" eventType="touchUpInside" id="nu1-D2-8FQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="B9v-xn-yg9" firstAttribute="top" secondItem="elH-6G-T00" secondAttribute="bottom" constant="176" id="9nu-Cf-wvh"/>
-                            <constraint firstItem="sWT-bv-dFN" firstAttribute="top" secondItem="elH-6G-T00" secondAttribute="bottom" constant="124" id="A0c-hR-Wlg"/>
-                            <constraint firstAttribute="centerX" secondItem="7Tp-Ub-ebv" secondAttribute="centerX" id="BjF-Wv-au6"/>
-                            <constraint firstAttribute="centerX" secondItem="sWT-bv-dFN" secondAttribute="centerX" id="NPD-XD-Cy1"/>
-                            <constraint firstAttribute="centerX" secondItem="B9v-xn-yg9" secondAttribute="centerX" id="VUg-5Y-X7V"/>
-                            <constraint firstItem="7Tp-Ub-ebv" firstAttribute="top" secondItem="elH-6G-T00" secondAttribute="bottom" constant="270" id="hFr-ev-JAc"/>
-                            <constraint firstAttribute="centerX" secondItem="fh9-Jr-Bv6" secondAttribute="centerX" id="tt6-Eh-Sea"/>
-                            <constraint firstItem="fh9-Jr-Bv6" firstAttribute="top" secondItem="elH-6G-T00" secondAttribute="bottom" constant="234" id="wde-Yp-xKx"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-view-a3f-yH-uFK"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <navigationItem key="navigationItem" id="em1-Jj-kpt"/>
-                    <connections>
-                        <outlet property="genderControl" destination="7Tp-Ub-ebv" id="lMk-1d-hWz"/>
-                        <outlet property="weaponControl" destination="fh9-Jr-Bv6" id="O3E-1C-vST"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IiX-s6-P5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1779" y="-38"/>
+            <point key="canvasLocation" x="-1153.6231884057972" y="138.61607142857142"/>
         </scene>
         <!--Mixpanel-->
         <scene sceneID="4C5-NK-bru">
@@ -136,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="MPLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4FA-CV-aBK">
-                                <rect key="frame" x="155" y="122" width="66" height="22"/>
+                                <rect key="frame" x="154.5" y="102" width="66" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="L3s-C5-3dZ"/>
                                     <constraint firstAttribute="width" constant="66" id="uME-E0-2w3"/>
@@ -146,7 +51,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2M5-rd-zct">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-containerView-2M5-rd-zct"/>
                                 </userDefinedRuntimeAttributes>
@@ -176,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaD-G3-zgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="554" y="207"/>
+            <point key="canvasLocation" x="-279.71014492753625" y="138.61607142857142"/>
         </scene>
         <!--No Image-->
         <scene sceneID="WvE-33-dcs">
@@ -196,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGx-Ze-WIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2808" y="3835"/>
+            <point key="canvasLocation" x="6511.3043478260879" y="2310.1172627971728"/>
         </scene>
         <!--Timing View Controller-->
         <scene sceneID="x2b-oa-NVJ">
@@ -210,7 +115,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-Tb-Vkj">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-Tb-Vkj">
                                 <rect key="frame" x="71" y="202" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start">
@@ -223,7 +128,7 @@
                                     <action selector="start:" destination="xYk-qi-taq" eventType="touchUpInside" id="BfR-zW-Ulj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqI-JX-Jvq">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqI-JX-Jvq">
                                 <rect key="frame" x="215" y="202" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Track">
@@ -270,31 +175,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOw-8p-CiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="-213"/>
+            <point key="canvasLocation" x="2599.4202898550725" y="-128.30638252302421"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Aho-kn-Vxz">
             <objects>
                 <tableViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="kjf-hr-JMa" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CD1-wT-kso">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="gUx-Xr-CgF">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="OC3-Xs-814" style="IBUITableViewCellStyleDefault" id="NgW-44-zz1">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NgW-44-zz1" id="Ab7-Vg-qKa">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Track" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OC3-Xs-814">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-OC3-Xs-814"/>
@@ -307,17 +213,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="5mp-eV-fme" style="IBUITableViewCellStyleDefault" id="udy-fQ-EQQ">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="udy-fQ-EQQ" id="Ja2-Um-jWT">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5mp-eV-fme">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-OC3-Xs-814"/>
@@ -330,17 +236,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="AAg-e6-tOs" style="IBUITableViewCellStyleDefault" id="WfZ-Op-gUM">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WfZ-Op-gUM" id="gZc-HE-Kfo">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Utility" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AAg-e6-tOs">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-OC3-Xs-814"/>
@@ -353,17 +259,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Obr-1H-Ogr" style="IBUITableViewCellStyleDefault" id="XfL-IM-Dl2">
-                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XfL-IM-Dl2" id="aNF-DH-KU7">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="GDPR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Obr-1H-Ogr">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-OC3-Xs-814"/>
@@ -376,17 +282,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="CJv-3C-4Lz" style="IBUITableViewCellStyleDefault" id="JHh-4W-3dl">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JHh-4W-3dl" id="XZh-L2-r1U">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CJv-3C-4Lz">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-CJv-3C-4Lz"/>
@@ -399,17 +305,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="0.0" textLabel="D3f-sr-A1P" style="IBUITableViewCellStyleDefault" id="iyd-kZ-SWk">
-                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="248" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iyd-kZ-SWk" id="RRY-OP-heC">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="A/B Testing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D3f-sr-A1P">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-D3f-sr-A1P"/>
@@ -422,17 +328,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="1x8-g3-DoV" rowHeight="56" style="IBUITableViewCellStyleDefault" id="muy-on-9nY">
-                                        <rect key="frame" x="0.0" y="264" width="375" height="56"/>
+                                        <rect key="frame" x="0.0" y="292" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="muy-on-9nY" id="628-lz-nHw">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="55.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Timing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1x8-g3-DoV">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="55.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-1x8-g3-DoV"/>
@@ -442,6 +348,29 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="xYk-qi-taq" kind="push" id="jxc-V3-er6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="mc6-SZ-fbg" rowHeight="56" style="IBUITableViewCellStyleDefault" id="qp6-su-XKj">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qp6-su-XKj" id="LMp-al-PGC">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mc6-SZ-fbg">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="56"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-1x8-g3-DoV"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gmj-hf-2aE" kind="push" id="fdt-h1-nQL"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -455,7 +384,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKC-vS-chL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986.5" y="424.5"/>
+            <point key="canvasLocation" x="468.11594202898556" y="138.61607142857142"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="b6Z-oo-CSW">
@@ -470,11 +399,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FeW-s9-PGJ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackingCellIdentifier" id="KJ9-Px-UAc">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KJ9-Px-UAc" id="Fxe-BV-t0s">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -503,138 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4i-gq-NKc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560" y="-139"/>
-        </scene>
-        <!--Secret Whisper-->
-        <scene sceneID="z3A-Of-1gx">
-            <objects>
-                <viewController title="Secret Whisper" id="atC-5D-Ob1" customClass="SecretWhisperViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V6G-FI-5Bl"/>
-                        <viewControllerLayoutGuide type="bottom" id="t0w-dZ-7Iv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KoZ-1W-1qx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="331" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ame-u7-eQE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecretTableViewCell" rowHeight="331" id="T6L-me-3qo" customClass="SecretTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="331"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="502" contentMode="center" tableViewCell="T6L-me-3qo" id="AM6-rc-cdB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="330.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="510" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3DD-Pi-vPR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-imageView-3DD-Pi-vPR"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                                <view alpha="0.39999999999999963" tag="509" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Thu-Zw-tR8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-view-Thu-Zw-tR8"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="508" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="234" translatesAutoresizingMaskIntoConstraints="NO" id="qfn-h0-qcg">
-                                                    <rect key="frame" x="43" y="89" width="234" height="135"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-qfn-h0-qcg"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="506" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLB-wW-VU5">
-                                                    <rect key="frame" x="20" y="295" width="151" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-qLB-wW-VU5"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E9k-R0-DEe">
-                                                    <rect key="frame" x="187" y="279" width="133" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHt-bA-ifl">
-                                                            <rect key="frame" x="95" y="15" width="18" height="15"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-GHt-bA-ifl"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NX-Kc-dAd">
-                                                            <rect key="frame" x="31" y="15" width="18" height="15"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-0NX-Kc-dAd"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </label>
-                                                        <imageView userInteractionEnabled="NO" tag="501" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Like" translatesAutoresizingMaskIntoConstraints="NO" id="Ll7-cp-5eb">
-                                                            <rect key="frame" x="0.0" y="10" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-imageView-Ll7-cp-5eb"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" tag="500" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="D9Y-dT-PPO">
-                                                            <rect key="frame" x="62" y="10" width="25" height="25"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-imageView-D9Y-dT-PPO"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-view-E9k-R0-DEe"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="backgroundImage" destination="3DD-Pi-vPR" id="Lpt-qU-JLE"/>
-                                            <outlet property="commentsLabel" destination="0NX-Kc-dAd" id="onq-Xe-peN"/>
-                                            <outlet property="contentLabel" destination="qfn-h0-qcg" id="iYi-4r-fjL"/>
-                                            <outlet property="likeslabel" destination="GHt-bA-ifl" id="tYh-OM-AVk"/>
-                                            <outlet property="locationLabel" destination="qLB-wW-VU5" id="Xbt-xh-iRx"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-tableView-Ame-u7-eQE"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="atC-5D-Ob1" id="gaL-jK-km9"/>
-                                    <outlet property="delegate" destination="atC-5D-Ob1" id="L4g-Fb-esf"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-view-KoZ-1W-1qx"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <navigationItem key="navigationItem" id="76t-Ix-epp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="II3-Nc-53P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="986" y="922"/>
+            <point key="canvasLocation" x="2289.8550724637685" y="145.3125"/>
         </scene>
         <!--People View Controller-->
         <scene sceneID="g1O-d3-Np3">
@@ -649,11 +447,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-JU-0fW">
-                                <rect key="frame" x="0.0" y="20" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackingCellIdentifier" id="VVg-tz-vJq">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VVg-tz-vJq" id="Vzt-6v-Pts">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -682,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jk-7K-VBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560" y="993"/>
+            <point key="canvasLocation" x="2992.753623188406" y="460.04464285714283"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="bIK-8d-7hJ">
@@ -703,8 +501,8 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-imageView-jGo-oH-Gk5"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9B-Gc-zhT">
-                                <rect key="frame" x="97.5" y="181" width="180" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9B-Gc-zhT">
+                                <rect key="frame" x="97.5" y="164" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="LHS-Wy-u6c"/>
                                     <constraint firstAttribute="height" constant="21" id="XNL-tU-MWy"/>
@@ -721,7 +519,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notif ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="auC-4E-3iO">
-                                <rect key="frame" x="152.5" y="133" width="70" height="30"/>
+                                <rect key="frame" x="152.5" y="116" width="70" height="30"/>
                                 <accessibility key="accessibilityConfiguration" label=""/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="oI5-fV-qN1"/>
@@ -734,7 +532,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ews-8i-K8A">
-                                <rect key="frame" x="74" y="87" width="227" height="29"/>
+                                <rect key="frame" x="67" y="67" width="241" height="32"/>
                                 <segments>
                                     <segment title="Takeover Notif"/>
                                     <segment title="Mini Notification"/>
@@ -747,8 +545,8 @@
                                     <action selector="setNotificationType:" destination="PAi-oO-Noz" eventType="valueChanged" id="5xi-Es-mQk"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvb-ez-zdi">
-                                <rect key="frame" x="97.5" y="210" width="180" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvb-ez-zdi">
+                                <rect key="frame" x="97.5" y="193" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="htx-sh-cga"/>
                                     <constraint firstAttribute="width" constant="180" id="tqQ-7z-1Ej"/>
@@ -765,6 +563,13 @@
                                     <action selector="changeBackground" destination="PAi-oO-Noz" eventType="touchUpInside" id="GVf-TM-LqN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqE-oz-ZdM" userLabel="Request notification permission">
+                                <rect key="frame" x="79.5" y="235" width="216" height="30"/>
+                                <state key="normal" title="Request notification permission"/>
+                                <connections>
+                                    <action selector="requestNotificationPermission:" destination="PAi-oO-Noz" eventType="touchUpInside" id="fDS-cL-5i7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -777,7 +582,9 @@
                             <constraint firstAttribute="trailing" secondItem="jGo-oH-Gk5" secondAttribute="trailing" id="K8m-QA-f46"/>
                             <constraint firstAttribute="centerX" secondItem="auC-4E-3iO" secondAttribute="centerX" id="M5c-Yo-Ugz"/>
                             <constraint firstItem="Eka-Dd-tSy" firstAttribute="top" secondItem="jGo-oH-Gk5" secondAttribute="bottom" id="Mrn-HA-fI9"/>
+                            <constraint firstItem="tqE-oz-ZdM" firstAttribute="centerX" secondItem="hvb-ez-zdi" secondAttribute="centerX" id="NPc-vC-1WA"/>
                             <constraint firstItem="jGo-oH-Gk5" firstAttribute="top" secondItem="Efi-Hy-TDA" secondAttribute="top" id="RoE-aN-Ik8"/>
+                            <constraint firstItem="tqE-oz-ZdM" firstAttribute="top" secondItem="hvb-ez-zdi" secondAttribute="bottom" constant="21" id="dnd-UW-c2p"/>
                             <constraint firstAttribute="centerX" secondItem="Ews-8i-K8A" secondAttribute="centerX" id="ef0-qR-N4Y"/>
                             <constraint firstAttribute="centerX" secondItem="e9B-Gc-zhT" secondAttribute="centerX" id="ooN-If-c1d"/>
                             <constraint firstItem="auC-4E-3iO" firstAttribute="top" secondItem="Ews-8i-K8A" secondAttribute="bottom" constant="18" id="ytt-Jb-Htd"/>
@@ -794,10 +601,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LER-l9-m7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="1723"/>
+            <point key="canvasLocation" x="1213.0434782608697" y="1161.1607142857142"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="ELb-7z-xd7">
+        <scene sceneID="ELb-6z-xd7">
             <objects>
                 <viewController id="9cb-wX-AKx" sceneMemberID="viewController">
                     <layoutGuides>
@@ -808,7 +615,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoZ-lb-2Y5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoZ-lb-2Y5">
                                 <rect key="frame" x="160.5" y="286.5" width="54" height="30"/>
                                 <state key="normal" title="Dismiss">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -821,7 +628,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label with constraints" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZb-DT-cbh">
-                                <rect key="frame" x="104" y="360.5" width="167.5" height="20.5"/>
+                                <rect key="frame" x="105" y="360.5" width="166.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -857,14 +664,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tb-fj-2wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rxe-fm-QWt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2274" y="1811"/>
+            <point key="canvasLocation" x="5273.04347826087" y="1090.9054401370743"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uLx-b1-WMe">
             <objects>
                 <viewController id="zof-Y0-cqK" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5yS-SR-rlq"/>
+                        <viewControllerLayoutGuide type="top" id="6yS-SR-rlq"/>
                         <viewControllerLayoutGuide type="bottom" id="XU5-Wm-oGG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="18S-Ud-lQo">
@@ -880,7 +687,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-sEU-Eo-c2O"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvE-69-z87">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvE-69-z87">
                                 <rect key="frame" x="110.5" y="49" width="154" height="30"/>
                                 <state key="normal" title="Button with a long title">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -893,19 +700,19 @@
                                 </connections>
                             </button>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="l3e-1K-yxm">
-                                <rect key="frame" x="247.5" y="138" width="94" height="29"/>
+                                <rect key="frame" x="242.5" y="138" width="94" height="32"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-stepper-l3e-1K-yxm"/>
                                 </userDefinedRuntimeAttributes>
                             </stepper>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OAo-lJ-2UW">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OAo-lJ-2UW">
                                 <rect key="frame" x="306" y="86" width="51" height="31"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-switch-OAo-lJ-2UW"/>
                                 </userDefinedRuntimeAttributes>
                             </switch>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YWo-CI-4Ue">
-                                <rect key="frame" x="234" y="175" width="121" height="29"/>
+                                <rect key="frame" x="224" y="178" width="131" height="32"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -914,13 +721,13 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-segmentedControl-YWo-CI-4Ue"/>
                                 </userDefinedRuntimeAttributes>
                             </segmentedControl>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="HV0-wq-yAr">
-                                <rect key="frame" x="162" y="83" width="94" height="37"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="HV0-wq-yAr">
+                                <rect key="frame" x="162" y="88" width="94" height="27.5"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-pageControl-HV0-wq-yAr"/>
                                 </userDefinedRuntimeAttributes>
                             </pageControl>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NPd-jX-jFD">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NPd-jX-jFD">
                                 <rect key="frame" x="269" y="91.5" width="20" height="20"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-activityIndicatorView-NPd-jX-jFD"/>
@@ -936,7 +743,7 @@
                                 </userDefinedRuntimeAttributes>
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WGL-p3-qsV">
-                                <rect key="frame" x="20" y="212" width="335" height="30"/>
+                                <rect key="frame" x="20" y="212" width="335" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -954,7 +761,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vEu-bG-WjU">
-                                <rect key="frame" x="20" y="250" width="335" height="206"/>
+                                <rect key="frame" x="20" y="254" width="335" height="202"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Lorem">
@@ -1016,7 +823,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YgV-bM-dil">
-                                <rect key="frame" x="20" y="10" width="335" height="2"/>
+                                <rect key="frame" x="20" y="10" width="335" height="4"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-progressView-YgV-bM-dil"/>
                                 </userDefinedRuntimeAttributes>
@@ -1165,7 +972,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNj-yI-vIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="FeM-eq-4Zb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3078" y="1767"/>
+            <point key="canvasLocation" x="7137.3913043478269" y="1064.4008352966373"/>
         </scene>
         <!--Kitchen Sink-->
         <scene sceneID="8Yl-g8-Oxb">
@@ -1188,7 +995,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiP-v9-alA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2274" y="2474"/>
+            <point key="canvasLocation" x="5273.04347826087" y="1490.2816448918397"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ejd-Ic-I9O">
@@ -1249,7 +1056,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3078" y="3092"/>
+            <point key="canvasLocation" x="7137.3913043478269" y="1862.5508674234313"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MlI-Hh-ZeY">
@@ -1268,39 +1075,24 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="cda-Hz-whA"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="421182925.38498503">
-                                    <!--2014-05-07 19:15:25 +0000-->
-                                </date>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-datePicker-UuK-VJ-VGn"/>
                                 </userDefinedRuntimeAttributes>
                             </datePicker>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hNP-yy-hAs">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hNP-yy-hAs">
                                 <rect key="frame" x="20" y="190" width="335" height="259"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-mapView-hNP-yy-hAs"/>
                                 </userDefinedRuntimeAttributes>
                             </mapView>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8q-lR-j0l">
-                                <rect key="frame" x="20" y="457" width="335" height="90"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="7tx-hB-dYD"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-webView-K8q-lR-j0l"/>
-                                </userDefinedRuntimeAttributes>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hNP-yy-hAs" firstAttribute="leading" secondItem="haZ-lR-k6D" secondAttribute="leading" constant="20" id="0Ox-3Y-h8U"/>
                             <constraint firstItem="UuK-VJ-VGn" firstAttribute="top" secondItem="haZ-lR-k6D" secondAttribute="top" constant="20" id="5yl-h3-ARO"/>
                             <constraint firstAttribute="trailing" secondItem="UuK-VJ-VGn" secondAttribute="trailing" constant="20" id="7RS-vl-6hW"/>
-                            <constraint firstItem="K8q-lR-j0l" firstAttribute="leading" secondItem="haZ-lR-k6D" secondAttribute="leading" constant="20" id="9RY-Oy-Ggf"/>
-                            <constraint firstItem="K8q-lR-j0l" firstAttribute="top" secondItem="hNP-yy-hAs" secondAttribute="bottom" constant="8" id="Ahr-dh-nae"/>
-                            <constraint firstAttribute="trailing" secondItem="K8q-lR-j0l" secondAttribute="trailing" constant="20" id="V0x-AK-bcL"/>
-                            <constraint firstAttribute="bottom" secondItem="K8q-lR-j0l" secondAttribute="bottom" constant="56" id="V7B-Gq-Bzl"/>
+                            <constraint firstAttribute="leading" secondItem="haZ-lR-k6D" secondAttribute="leading" constant="20" id="9RY-Oy-Ggf"/>
+                            <constraint firstAttribute="top" secondItem="hNP-yy-hAs" secondAttribute="bottom" constant="8" id="Ahr-dh-nae"/>
                             <constraint firstItem="UuK-VJ-VGn" firstAttribute="leading" secondItem="haZ-lR-k6D" secondAttribute="leading" constant="20" id="ViS-0G-cyy"/>
                             <constraint firstAttribute="trailing" secondItem="hNP-yy-hAs" secondAttribute="trailing" constant="20" id="jC5-ci-gza"/>
                             <constraint firstItem="hNP-yy-hAs" firstAttribute="top" secondItem="UuK-VJ-VGn" secondAttribute="bottom" constant="8" id="rQ4-i0-apL"/>
@@ -1313,7 +1105,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zqT-nQ-rWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3078" y="2474"/>
+            <point key="canvasLocation" x="7137.3913043478269" y="1490.2816448918397"/>
         </scene>
         <!--A/B Testing-->
         <scene sceneID="cMo-ro-H4D">
@@ -1337,7 +1129,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-4xb-bA-KXH"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNk-YS-2S2">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNk-YS-2S2">
                                 <rect key="frame" x="82" y="334" width="156" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Present Modal">
@@ -1350,7 +1142,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                                     <segue destination="9cb-wX-AKx" kind="modal" identifier="PresentModal" id="Whc-DY-5P5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-TE-MhX">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-TE-MhX">
                                 <rect key="frame" x="82" y="372" width="156" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Push Kitchen Sink">
@@ -1373,7 +1165,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                                     <userDefinedRuntimeAttribute type="string" keyPath="mixpanelViewId" value="mp-label-2FA-bp-70L"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yP3-UX-Czn">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yP3-UX-Czn">
                                 <rect key="frame" x="95" y="410" width="131" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Join available tests">
@@ -1386,7 +1178,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                                     <action selector="joinExperiments:" destination="dag-He-PtO" eventType="touchUpInside" id="SbM-q2-bhQ"/>
                                 </connections>
                             </button>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="yls-NG-mD4">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Like" translatesAutoresizingMaskIntoConstraints="NO" id="yls-NG-mD4">
                                 <rect key="frame" x="104" y="132" width="113" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -1407,7 +1199,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfw-Ui-bcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779" y="2221"/>
+            <point key="canvasLocation" x="4125.217391304348" y="1337.8801670593275"/>
         </scene>
         <!--Utility View Controller-->
         <scene sceneID="YbR-Fp-BWm">
@@ -1422,11 +1214,11 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OKm-Hj-9tO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackingCellIdentifier" id="5aW-53-WxM">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5aW-53-WxM" id="jxW-13-XWl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1451,7 +1243,7 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVP-MW-lGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1421" y="1510"/>
+            <point key="canvasLocation" x="2650.7246376811595" y="934.82142857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vaf-Tm-7XO">
@@ -1466,11 +1258,11 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CvV-IR-roU">
-                                <rect key="frame" x="0.0" y="20" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackingCellIdentifier" id="uUd-YR-VNC">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uUd-YR-VNC" id="sv5-lu-Hoj">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1499,13 +1291,59 @@ Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSV-YY-J7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="639"/>
+            <point key="canvasLocation" x="555.07246376811599" y="962.27678571428567"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="Uz2-Wy-DPF">
+            <objects>
+                <viewController title="Group" id="gmj-hf-2aE" customClass="GroupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HWf-SO-CXv"/>
+                        <viewControllerLayoutGuide type="bottom" id="oi4-11-Vae"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xmz-g0-K8r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9z-pa-STL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iqg-wN-5Ch">
+                                <rect key="frame" x="0.0" y="10" width="375" height="647"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackingCellIdentifier" id="cqy-9m-GH1">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cqy-9m-GH1" id="EdI-bP-uap">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vqy-0n-ioM"/>
+                    <connections>
+                        <outlet property="tableView" destination="iqg-wN-5Ch" id="Y0k-R4-p3W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sFe-98-VWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="194.20289855072465" y="1456.4732142857142"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Comment" width="25" height="25"/>
         <image name="Icon.png" width="57" height="57"/>
         <image name="Like" width="25" height="25"/>
         <image name="MPLogo" width="25" height="25"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
